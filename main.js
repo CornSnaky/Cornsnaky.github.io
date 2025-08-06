@@ -109,7 +109,7 @@ function randInt(min, max) {
 import * as three from 'https://cdn.jsdelivr.net/npm/three@0.179.1/build/three.module.js';
 
 import {OrbitControls} from 'https://cdn.jsdelivr.net/npm/three@0.179.1/examples/jsm/controls/OrbitControls.js';
-import { update } from 'three/examples/jsm/libs/tween.module.js';
+
 let score=0;
 let gameover=false;
 let notpuzzlemode=true;
@@ -450,25 +450,36 @@ camera.position.z = 10;
 window.addEventListener('keyup',(event)=>{
     if(event.key=="q"){
         moveQ();
+        document.getElementById("score").innerText="score:"+score+"  无法操作后可以刷新以重开";
+    updateScene();
     }
     if(event.key=="e"){
         moveE();
+        document.getElementById("score").innerText="score:"+score+"  无法操作后可以刷新以重开";
+    updateScene();
     }
     if(event.key=="d"){
         moveD();
+        document.getElementById("score").innerText="score:"+score+"  无法操作后可以刷新以重开";
+    updateScene();
     }
     if(event.key=="a"){
         moveA();
+        document.getElementById("score").innerText="score:"+score+"  无法操作后可以刷新以重开";
+    updateScene();
     }
     if(event.key=="w"){
         moveW();
+        document.getElementById("score").innerText="score:"+score+"  无法操作后可以刷新以重开";
+    updateScene();
     }
     if(event.key=="s"){
         moveS();
+        document.getElementById("score").innerText="score:"+score+"  无法操作后可以刷新以重开";
+        updateScene();
     }
     
-    document.getElementById("score").innerText="score:"+score+"  无法操作后可以刷新以重开";
-    updateScene();
+    
 });
 function animate() {
   controls.update(); // 每帧更新控制器
