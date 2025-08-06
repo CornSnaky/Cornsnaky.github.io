@@ -480,37 +480,37 @@ function animate() {
     let button=document.getElementById("buttonq")
     button.addEventListener('click', function() {
         moveQ();
-        document.getElementById("score").innerText="score:"+score;
+        document.getElementById("score").innerText="score:"+score+"  无法操作后可以刷新以重开";
         updateScene();
     });
     button=document.getElementById("buttone")
     button.addEventListener('click', function() {
         moveE();
-        document.getElementById("score").innerText="score:"+score;
+        document.getElementById("score").innerText="score:"+score+"  无法操作后可以刷新以重开";
         updateScene();
     });
     button=document.getElementById("buttona")
     button.addEventListener('click', function() {
         moveA();
-        document.getElementById("score").innerText="score:"+score;
+        document.getElementById("score").innerText="score:"+score+"  无法操作后可以刷新以重开";
         updateScene();
     });
     button=document.getElementById("buttond")
     button.addEventListener('click', function() {
         moveD();
-        document.getElementById("score").innerText="score:"+score;
+        document.getElementById("score").innerText="score:"+score+"  无法操作后可以刷新以重开";
         updateScene();
     });
     button=document.getElementById("buttons")
     button.addEventListener('click', function() {
         moveS();
-        document.getElementById("score").innerText="score:"+score;
+        document.getElementById("score").innerText="score:"+score+"  无法操作后可以刷新以重开";
         updateScene();
     });
     button=document.getElementById("buttonw")
     button.addEventListener('click', function() {
         moveW();
-        document.getElementById("score").innerText="score:"+score;
+        document.getElementById("score").innerText="score:"+score+"  无法操作后可以刷新以重开";
         updateScene();
     });
 }
