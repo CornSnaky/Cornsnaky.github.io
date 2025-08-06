@@ -1,8 +1,8 @@
 /**
- * 将色相值（2-33）映射到红色到紫色的颜色代码（THREE.Color 对象）。
+ * 将色相值（2-33）映射到红色到紫色的颜色代码（three.Color 对象）。
  *
  * @param {number} hueValue - 色相值，范围是 2 到 33。
- * @returns {THREE.Color} - THREE.Color 对象，表示红色到紫色渐变的对应颜色。
+ * @returns {three.Color} - three.Color 对象，表示红色到紫色渐变的对应颜色。
  * @throws {Error} - 如果 hueValue 超出范围，则抛出错误。
  */
 function hueToRedPurple(hueValue) {
@@ -18,8 +18,8 @@ function hueToRedPurple(hueValue) {
     // 将 HSL 转换为 RGB。 使用辅助函数。
     const { r, g, b } = hslToRgb(hue, 1, 0.5); // 饱和度为 1，亮度为 0.5
 
-    // 创建 THREE.Color 对象
-    const color = new THREE.Color(r / 255, g / 255, b / 255);
+    // 创建 three.Color 对象
+    const color = new three.Color(r / 255, g / 255, b / 255);
 
     return color;
 }
@@ -90,9 +90,9 @@ function createTextLabel(text, position) {
     context.fillText(text, canvas.width / 2, canvas.height / 2);
 
     // 创建纹理并应用到sprite
-    const texture = new THREE.CanvasTexture(canvas);
-    const spriteMaterial = new THREE.SpriteMaterial({ map: texture });
-    const sprite = new THREE.Sprite(spriteMaterial);
+    const texture = new three.CanvasTexture(canvas);
+    const spriteMaterial = new three.SpriteMaterial({ map: texture });
+    const sprite = new three.Sprite(spriteMaterial);
     sprite.position.copy(position);
     sprite.position.y += 0.5; // 调整文本标签的y位置，使其在方块内部
     sprite.scale.set(0.5, 0.5, 1); // 调整sprite的大小，使其在方块内部
@@ -106,10 +106,9 @@ function randInt(min, max) {
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-import * as THREE from 'three';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
-import { update } from 'three/examples/jsm/libs/tween.module.js';
-import { add } from 'three/tsl';
+import * as three from 'https://cdn.jsdelivr.net/npm/three@0.179.1/build/three.module.js';
+
+import {OrbitControls} from 'https://cdn.jsdelivr.net/npm/three@0.179.1/examples/jsm/controls/OrbitControls.js';
 let score=0;
 let gameover=false;
 let notpuzzlemode=true;
@@ -383,31 +382,33 @@ function addNewNumber(){
     }
     
 }
-const scene = new THREE.Scene();
-scene.background = new THREE.Color( 0xF3F3FF );
-const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+const scene = new three.Scene();
 
-const renderer = new THREE.WebGLRenderer();
+scene.background = new three.Color( 0xF3F3FF );
+const camera = new three.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+
+const renderer = new three.WebGLRenderer();
 renderer.setSize( window.innerWidth, window.innerHeight );
 document.body.appendChild( renderer.domElement );
 
 // 创建 OrbitControls
 const controls = new OrbitControls(camera, renderer.domElement);
+
 controls.enablePan=false;
 function updateScene(){
     // 清除场景中的所有对象
     while(scene.children.length > 0){
         scene.remove(scene.children[0]);
     }
-    const geometry = new THREE.BoxGeometry( 1, 1, 1 );
-    const edges = new THREE.EdgesGeometry(geometry);
+    const geometry = new three.BoxGeometry( 1, 1, 1 );
+    const edges = new three.EdgesGeometry(geometry);
     for (let i = 0; i < 4; i++) {
         for (let j = 0; j < 4; j++) {
             for (let k = 0; k < 4; k++) {
                 // 每次都新建一个 LineSegments 和新的 geometry
                 const lineGeometry = edges.clone();
                 lineGeometry.translate(i-1.5, j-1.5, k-1.5); // 每个立方体在y轴上间隔2个单位
-                const line = new THREE.LineSegments(lineGeometry, new THREE.LineBasicMaterial({ color: 0x000000, 
+                const line = new three.LineSegments(lineGeometry, new three.LineBasicMaterial({ color: 0x000000, 
                     transparent: true, 
                     opacity: 0.1
                 }));
@@ -416,10 +417,10 @@ function updateScene(){
                 
                 if (map[i][j][k]!=0) {
                     
-                    const material = new THREE.MeshBasicMaterial( { color: hueToRedPurple(Math.floor(Math.log10(map[i][j][k])/Math.log10(3))), transparent:true,opacity:0.5,depthWrite:false} );
-                    const cube=map[i][j][k]!=0?new THREE.Mesh(geometry,material):null;  
+                    const material = new three.MeshBasicMaterial( { color: hueToRedPurple(Math.floor(Math.log10(map[i][j][k])/Math.log10(3))), transparent:true,opacity:0.5,depthWrite:false} );
+                    const cube=map[i][j][k]!=0?new three.Mesh(geometry,material):null;  
                     cube.position.set(i-1.5, j-1.5, k-1.5);
-                    let textlabel=createTextLabel(map[i][j][k], new THREE.Vector3(i-1.5, j-1.5, k-1.5));
+                    let textlabel=createTextLabel(map[i][j][k], new three.Vector3(i-1.5, j-1.5, k-1.5));
                     textlabel.name=map[i][j][k];
                     textlabel.position.set(i-1.5, j-1.5, k-1.5);
                     textlabel.scale.set(1, 1, 1);
@@ -429,17 +430,17 @@ function updateScene(){
             }
         }
     }
-    let textlabelq=createTextLabel("q", new THREE.Vector3(0, -0.5, 6));
+    let textlabelq=createTextLabel("q", new three.Vector3(0, -0.5, 6));
     scene.add(textlabelq);
-    let textlabele=createTextLabel("e", new THREE.Vector3(0, -0.5, -6));
+    let textlabele=createTextLabel("e", new three.Vector3(0, -0.5, -6));
     scene.add(textlabele);
-    let textlabelw=createTextLabel("w", new THREE.Vector3(0, 6, 0));
+    let textlabelw=createTextLabel("w", new three.Vector3(0, 6, 0));
     scene.add(textlabelw);
-    let textlabels=createTextLabel("s", new THREE.Vector3(0, -6, 0));
+    let textlabels=createTextLabel("s", new three.Vector3(0, -6, 0));
     scene.add(textlabels);
-    let textlabela=createTextLabel("a", new THREE.Vector3(-6, -0.5, 0));
+    let textlabela=createTextLabel("a", new three.Vector3(-6, -0.5, 0));
     scene.add(textlabela);
-    let textlabeld=createTextLabel("d", new THREE.Vector3(6, -0.5, 0));
+    let textlabeld=createTextLabel("d", new three.Vector3(6, -0.5, 0));
     scene.add(textlabeld);
 }
 updateScene();
