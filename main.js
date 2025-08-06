@@ -109,6 +109,7 @@ function randInt(min, max) {
 import * as three from 'https://cdn.jsdelivr.net/npm/three@0.179.1/build/three.module.js';
 
 import {OrbitControls} from 'https://cdn.jsdelivr.net/npm/three@0.179.1/examples/jsm/controls/OrbitControls.js';
+import { update } from 'three/examples/jsm/libs/tween.module.js';
 let score=0;
 let gameover=false;
 let notpuzzlemode=true;
@@ -442,6 +443,7 @@ function updateScene(){
     scene.add(textlabela);
     let textlabeld=createTextLabel("d", new three.Vector3(6, -0.5, 0));
     scene.add(textlabeld);
+    
 }
 updateScene();
 camera.position.z = 10;
@@ -465,12 +467,51 @@ window.addEventListener('keyup',(event)=>{
         moveS();
     }
     
+    document.getElementById("score").innerText="score:"+score+"  无法操作后可以刷新以重开";
     updateScene();
 });
 function animate() {
   controls.update(); // 每帧更新控制器
   renderer.render( scene, camera );
-  document.getElementById("score").innerText="score:"+score;
+  
 }
-
+//为按钮绑定事件
+{
+    let button=document.getElementById("buttonq")
+    button.addEventListener('click', function() {
+        moveQ();
+        document.getElementById("score").innerText="score:"+score;
+        updateScene();
+    });
+    button=document.getElementById("buttone")
+    button.addEventListener('click', function() {
+        moveE();
+        document.getElementById("score").innerText="score:"+score;
+        updateScene();
+    });
+    button=document.getElementById("buttona")
+    button.addEventListener('click', function() {
+        moveA();
+        document.getElementById("score").innerText="score:"+score;
+        updateScene();
+    });
+    button=document.getElementById("buttond")
+    button.addEventListener('click', function() {
+        moveD();
+        document.getElementById("score").innerText="score:"+score;
+        updateScene();
+    });
+    button=document.getElementById("buttons")
+    button.addEventListener('click', function() {
+        moveS();
+        document.getElementById("score").innerText="score:"+score;
+        updateScene();
+    });
+    button=document.getElementById("buttonw")
+    button.addEventListener('click', function() {
+        moveW();
+        document.getElementById("score").innerText="score:"+score;
+        updateScene();
+    });
+}
 renderer.setAnimationLoop( animate );
