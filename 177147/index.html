@@ -13,6 +13,60 @@
         font-size: 20px;
         
       }
+      #gameover{
+        position:absolute;
+        top:10px;
+        left:250px;
+        color:black;
+        font-size: 40px;
+      }
+      button{
+        width:60px;
+        height: 60px;
+        color:black;
+        background-color:lightskyblue;
+        border:black;
+        border-radius: 1px;
+        cursor: pointer;
+        font-size: 16px;
+        font:lighter;
+      }
+      button:hover{
+        background-color: lightblue;
+      }
+      button:active{
+        background-color: darkgray;
+      }
+      #buttonq{
+        position:absolute;
+        left:10px;
+        top:50px;
+      }
+      #buttone{
+        position:absolute;
+        left:100px;
+        top:50px;
+      }
+      #buttona{
+        position:absolute;
+        left:10px;
+        top:130px;
+      }
+      #buttond{
+        position:absolute;
+        left:100px;
+        top:130px;
+      }
+      #buttonw{
+        position:absolute;
+        left:10px;
+        top:210px;
+      }
+      #buttons{
+        position:absolute;
+        left:100px;
+        top:210px;
+      }
     </style>
     <script type="importmap">
         {
@@ -24,10 +78,14 @@
     </script>
   </head>
   <body>
-    <script type="module" src=".\main.js">
-        
-    </script>
+    <script type="module" src=".\main.js"></script>
+    <button id="buttonq">Q</button>
+    <button id="buttone">E</button>
+    <button id="buttona">A</button>
+    <button id="buttond">D</button>
+    <button id="buttonw">W</button>
+    <button id="buttons">S</button>
     
-    <span id="score" style="display:inline-flexbox">score:0</span>
+    <span id="score" style="display:inline-flexbox">score:0  无法操作后可以刷新以重开 同一排三个才可合成</span>
   </body>
 </html>

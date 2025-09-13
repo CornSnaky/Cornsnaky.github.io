@@ -106,12 +106,14 @@ function randInt(min, max) {
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-import * as three from 'https://cdn.jsdelivr.net/npm/three@0.179.1/build/three.module.js';
+import * as three from 'three';
 
-import {OrbitControls} from 'https://cdn.jsdelivr.net/npm/three@0.179.1/examples/jsm/controls/OrbitControls.js';
+import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls.js';
+
 let score=0;
 let gameover=false;
 let notpuzzlemode=true;
+let puzzlesolved=false;
 let map=[[[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]],//a
       [[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]],
       [[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]],
@@ -442,35 +444,86 @@ function updateScene(){
     scene.add(textlabela);
     let textlabeld=createTextLabel("d", new three.Vector3(6, -0.5, 0));
     scene.add(textlabeld);
+    
 }
 updateScene();
 camera.position.z = 10;
 window.addEventListener('keyup',(event)=>{
     if(event.key=="q"){
         moveQ();
+        document.getElementById("score").innerText="score:"+score+"  无法操作后可以刷新以重开 同一排三个才可合成";
+    updateScene();
     }
     if(event.key=="e"){
         moveE();
+        document.getElementById("score").innerText="score:"+score+"  无法操作后可以刷新以重开 同一排三个才可合成";
+    updateScene();
     }
     if(event.key=="d"){
         moveD();
+        document.getElementById("score").innerText="score:"+score+"  无法操作后可以刷新以重开 同一排三个才可合成";
+    updateScene();
     }
     if(event.key=="a"){
         moveA();
+        document.getElementById("score").innerText="score:"+score+"  无法操作后可以刷新以重开 同一排三个才可合成";
+    updateScene();
     }
     if(event.key=="w"){
         moveW();
+        document.getElementById("score").innerText="score:"+score+"  无法操作后可以刷新以重开 同一排三个才可合成";
+    updateScene();
     }
     if(event.key=="s"){
         moveS();
+        document.getElementById("score").innerText="score:"+score+"  无法操作后可以刷新以重开 同一排三个才可合成";
+        updateScene();
     }
-    document.getElementById("score").innerText="score:"+score;
-    updateScene();
+    
+    
 });
 function animate() {
   controls.update(); // 每帧更新控制器
   renderer.render( scene, camera );
   
 }
-
+//为按钮绑定事件
+{
+    let button=document.getElementById("buttonq")
+    button.addEventListener('click', function() {
+        moveQ();
+        document.getElementById("score").innerText="score:"+score+"  无法操作后可以刷新以重开 同一排三个才可合成";
+        updateScene();
+    });
+    button=document.getElementById("buttone")
+    button.addEventListener('click', function() {
+        moveE();
+        document.getElementById("score").innerText="score:"+score+"  无法操作后可以刷新以重开 同一排三个才可合成";
+        updateScene();
+    });
+    button=document.getElementById("buttona")
+    button.addEventListener('click', function() {
+        moveA();
+        document.getElementById("score").innerText="score:"+score+"  无法操作后可以刷新以重开 同一排三个才可合成";
+        updateScene();
+    });
+    button=document.getElementById("buttond")
+    button.addEventListener('click', function() {
+        moveD();
+        document.getElementById("score").innerText="score:"+score+"  无法操作后可以刷新以重开 同一排三个才可合成";
+        updateScene();
+    });
+    button=document.getElementById("buttons")
+    button.addEventListener('click', function() {
+        moveS();
+        document.getElementById("score").innerText="score:"+score+"  无法操作后可以刷新以重开 同一排三个才可合成";
+        updateScene();
+    });
+    button=document.getElementById("buttonw")
+    button.addEventListener('click', function() {
+        moveW();
+        document.getElementById("score").innerText="score:"+score+"  无法操作后可以刷新以重开 同一排三个才可合成";
+        updateScene();
+    });
+}
 renderer.setAnimationLoop( animate );
