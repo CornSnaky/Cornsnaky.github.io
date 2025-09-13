@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <title>蛇蛇hunt存档站</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <script src="changePuzzle.js"></script>
+        
+        <div class="container">
+            <div class="sidebar">
+                <div class="tab active" id="main1">曹晟康之路</div>
+                <div class="tab" id="main2">谜途</div>
+                <div class="tab" id="main3">神秘转化</div>
+                <div class="tab" id="main4">夜观星車</div>
+                <div class="tab" id="main5">阳阴两隔</div>
+                <div class="tab" id="main6">走亲戚</div>
+                <div class="tab" id="main7">蛇梯棋</div>
+                <div class="tab" id="main8">惜·时</div>
+                <br>
+                <div class="tab" id="side1">完美</div>
+                <div class="tab" id="side2">成长</div>
+                <div class="tab" id="side3">你是什么色？你是什么火？</div>
+                <div class="tab" id="side4">汉字听写大会</div>
+            </div>
+            <div class="puzzle-content">
+                <div class="content-panel">
+                    <!-- 模式框结构，已包含基本要素，无需修改 -->
+                    <div id="puzzle-hints-window-background" class="modal">
+                        <div class="modal-content wide-modal">
+                            <span class="close" id="close-hints-window">&times;</span>
+                            <h3 class="modal-title">提示与解答</h3>
+                            <div class="modal-body">
+                                <div class="hints-vertical" id="hints-inner-content">
+                                    <details>
+                                        <summary>提示 1</summary>
+                                        <p>这里是第一个提示的内容。</p>
+                                    </details>
+                                    <details>
+                                        <summary>提示 2</summary>
+                                        <p>这里是第二个提示的内容。</p>
+                                    </details>
+                                    <details>
+                                        <summary>解答</summary>
+                                        <p>这里是解答内容。</p>
+                                    </details>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button id="modal-ok-button">确定</button>
+                            </div>
+                        </div>
+                    </div>
+                    <h2 id="puzzle-title" class="puzzle-inner-content"></h2>
+                    <p id="puzzle-flavortext" class="puzzle-inner-content"></p>
+                    <div id="puzzle-image" class="puzzle-inner-content"></div>
+                    <div id="puzzle-files" class="puzzle-inner-content"></div>
+                    <div id="puzzle-audio" class="puzzle-inner-content"></div>
+                    <div class="puzzle-submit-hints">
+                        <div class="puzzle-submit">
+                            <input type="text" id="submit-answer">
+                            <button id="submit-button" onclick="submitanswer()">提交</button>
+                        </div>
+                        <div class="puzzle-hints">
+                            <button id="hint-button" type="button">提示与解答</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>initTabs()</script>
+        <script>getPuzzleContent(0)</script>
+    </body>
+</html>

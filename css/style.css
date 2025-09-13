@@ -1,0 +1,35 @@
+h1{
+    color:darkgoldenrod;
+}
+body{
+    
+    background-image:url('../img/Background.png');
+    background-position: left bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height:100vh;
+}
+button{
+    width: fit-content;
+    height: 60px;
+    background-color: aliceblue;
+    display:flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin:auto;
+}
+button img{
+    max-width: 100%;
+    max-height: 100%;
+    
+    margin-right: 1px;
+    vertical-align: middle;
+}
+button span{
+    
+    vertical-align:middle;
+}
+#game177147{
+    background-color: aliceblue;
+}
