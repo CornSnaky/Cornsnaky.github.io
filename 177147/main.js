@@ -106,9 +106,9 @@ function randInt(min, max) {
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-import * as three from 'three';
+import * as three from 'https://cdn.jsdelivr.net/npm/three@0.179.1/build/three.module.js';
 
-import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls.js';
+import {OrbitControls} from 'https://cdn.jsdelivr.net/npm/three@0.179.1/examples/jsm/controls/OrbitControls.js';
 
 let score=0;
 let gameover=false;
